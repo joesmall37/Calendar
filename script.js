@@ -55,24 +55,24 @@ function colorCode() {
 	}
 }
 
-// set items to local storage
-for (var i = 0; i < descriptions.length; i++) {
-	var key = descriptions[i].attr('id');
-	descriptions[i].val(localStorage.getItem(key));
-}
+// // set items to local storage
+// for (var i = 0; i < descriptions.length; i++) {
+// 	var key = descriptions[i].attr('id');
+// 	descriptions[i].val(localStorage.getItem(key));
+// }
 
-var today = moment().format("dddd, MMM Do YY");
+var today = moment().format("dddd, MMM Do YYYY, h:mm:ss a");
 	date.text(today);
 
-// localStorage.getItem("#nine", ".description");
-// localStorage.getItem("#ten", ".description");
-// localStorage.getItem("#eleven", ".description");
-// localStorage.getItem("#twelve", ".description");
-// localStorage.getItem("#one", ".description");
-// localStorage.getItem("#two", ".description");
-// localStorage.getItem("#three", ".description");
-// localStorage.getItem("#four", ".description");
-// localStorage.getItem("#five", ".description");
+localStorage.getItem("#nine", ".description");
+localStorage.getItem("#ten", ".description");
+localStorage.getItem("#eleven", ".description");
+localStorage.getItem("#twelve", ".description");
+localStorage.getItem("#one", ".description");
+localStorage.getItem("#two", ".description");
+localStorage.getItem("#three", ".description");
+localStorage.getItem("#four", ".description");
+localStorage.getItem("#five", ".description");
 
 // functions called
 // innerTimeBlocks();
