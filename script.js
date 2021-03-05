@@ -1,77 +1,85 @@
-	var newText;
-	var newTime;
-	var currentTime;
 	var hourBlocks;
-	var timeColor = $(".time-block");
 	var currentDay = $("#currentDay");
+	var timeBlocks = $(".time-block");
+	var descriptions = $('.description');
+	var date = $(".display-3");
 
 
-	colorCode();
-	// get a refernce to all of the save buttons $('.saveBtn')
-	$(".saveBtn");
-	// create an array containing the hour blocks
-	hourblocks = [
-	$(".time-block nine"),
-	$(".time-block ten"),
-	$(".time-block eleven"),
-	$(".time-block twelve"),
-	$(".time-block one"),
-	$(".time-block two"),
-	$(".time-block three"),
-	$(".time-block four"),
-	$(".time-block five"),
-]
-// loop through the array containing the hour s
-function innerTimeBlocks() {
+// 	colorCode();
+// 	// get a refernce to all of the save buttons $('.saveBtn')
+// 	$(".saveBtn");
+// 	// create an array containing the hour blocks
+// // loop through the array containing the hours
+// function innerTimeBlocks() {
 
-for (var i = 0; i < hourblocks.length; i++) {
-	console.log(timeBlocks[i]);
-}
-};
+// for (var i = 0; i < hourBlocks.length; i++) {
+// 	return hourBlocks[i];
+// }
+// };
 // on click function each of the save buttons
-	$(".saveBtn").on("click", function () {
-	 newText = $(".saveBtn").siblings(".description").val();
-	 newTime = $(".saveBtn").parent().attr("id");
+$(".saveBtn").on("click", function () {
+	var newText = $(".saveBtn").siblings(".description").val();
+	var newTime = $(".saveBtn").parent().attr("id");
 
-	 localStorage.setItem(newTime, newText)
-	});
+	localStorage.setItem(newTime, newText)
+});
+	// localStorage.getItem(newTime, newText);
 // function for current time
-	function time() {
-	currentTime = moment().format("hA");
-	console.log(currentTime)
-};
-// function for current day
-function day() {
-	var today = moment().format("dddd, MMM Do YY");
-	console.log(today);
-}
+// 	function time() {
+// 	currentTime = moment().format("hA");
+// 	innerTimeBlocks();
+// 	colorCode();
+// 	return currentTime;
+// };
+// // function for current day
+
 function colorCode() {
-	if (timeColor < currentTime) {
-		timeColor.classList.add(".past");
-	} else if (timeColor = currentTime) {
-		timeColor.classList.remove(".past");
-		timeColor.classList.add(".present");
-	}else {
-		timeColor.classList.remove(".present");
-		timeColor.classList.add(".future");
+	var currentTime = moment().hour();
+	for (let i = 0; i < timeBlocks.length; i++) {
+		const element = timeBlocks[i];
+
+		if (element.data("hour") < currentTime) {
+			element.removeClass("present");
+			element.removeClass("future");
+			element.addClass("past");
+
+		} else if (element.data("hour") = currentTime) {
+			element.removeClass("past");
+			element.removeClass("future");
+			element.addClass("present");
+		}else {
+			element.removeClass("past");
+			element.removeClass("present");
+			element.addClass("future");
+		}
 	}
 }
 
 // set items to local storage
-localStorage.setItem("#nine", ".description");
-localStorage.setItem("#ten", ".description");
-localStorage.setItem("#eleven", ".description");
-localStorage.setItem("#twelve", ".description");
-localStorage.setItem("#one", ".description");
-localStorage.setItem("#two", ".description");
-localStorage.setItem("#three", ".description");
-localStorage.setItem("#four", ".description");
-localStorage.setItem("#five", ".description");
+for (var i = 0; i < descriptions.length; i++) {
+	var key = descriptions[i].attr('id');
+	descriptions[i].val(localStorage.getItem(key));
+}
+
+var today = moment().format("dddd, MMM Do YY");
+	date.text(today);
+
+// localStorage.getItem("#nine", ".description");
+// localStorage.getItem("#ten", ".description");
+// localStorage.getItem("#eleven", ".description");
+// localStorage.getItem("#twelve", ".description");
+// localStorage.getItem("#one", ".description");
+// localStorage.getItem("#two", ".description");
+// localStorage.getItem("#three", ".description");
+// localStorage.getItem("#four", ".description");
+// localStorage.getItem("#five", ".description");
 
 // functions called
-time();
-day();
+// innerTimeBlocks();
 colorCode();
+setInterval(colorCode, 5000);
+
+// colorCode();
 
 // function colorCode() {
 // 	if
@@ -117,7 +125,6 @@ colorCode();
 // localStorage.setItem("#four", ".description");
 // localStorage.setItem("#five", ".description");
 
-
 // // get items from local storage
 // $("#nine").val(localStorage.getItem("#nine"));
 // $("#ten").val(localStorage.getItem("#ten"));
@@ -158,3 +165,9 @@ colorCode();
     // Your code here.
 
 // });
+// mixing and matching js and jquery eg. class list
+// onclick versus click
+// not all languages can user callbacks
+// should I be passing in variabes into functions?
+// if js is running at the same time then I shouldn't just call functions
+// .each to itirate over arrays and objects
