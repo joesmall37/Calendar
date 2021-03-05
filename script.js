@@ -2,6 +2,7 @@
 	var currentDay = $("#currentDay");
 	var timeBlocks = $(".time-block");
 	var descriptions = $('.description');
+
 	var date = $(".display-3");
 
 
@@ -38,41 +39,41 @@ function colorCode() {
 	for (let i = 0; i < timeBlocks.length; i++) {
 		const element = timeBlocks[i];
 
-		if (element.data("hour") < currentTime) {
-			element.removeClass("present");
-			element.removeClass("future");
-			element.addClass("past");
+		if ($(element).data("hour") < currentTime) {
+			$(element).removeClass("present");
+			$(element).removeClass("future");
+			$(element).addClass("past");
 
-		} else if (element.data("hour") = currentTime) {
-			element.removeClass("past");
-			element.removeClass("future");
-			element.addClass("present");
+		} else if ($(element).data("hour") === currentTime) {
+			$(element).removeClass("past");
+			$(element).removeClass("future");
+			$(element).addClass("present");
 		}else {
-			element.removeClass("past");
-			element.removeClass("present");
-			element.addClass("future");
+			$(element).removeClass("past");
+			$(element).removeClass("present");
+			$(element).addClass("future");
 		}
 	}
 }
 
 // // set items to local storage
-// for (var i = 0; i < descriptions.length; i++) {
-// 	var key = descriptions[i].attr('id');
-// 	descriptions[i].val(localStorage.getItem(key));
-// }
+for (var i = 0; i < descriptions.length; i++) {
+	var key = $(descriptions[i]).attr('id');
+	$(descriptions[i]).val(localStorage.getItem(key));
+}
 
 var today = moment().format("dddd, MMM Do YYYY, h:mm:ss a");
 	date.text(today);
 
-localStorage.getItem("#nine", ".description");
-localStorage.getItem("#ten", ".description");
-localStorage.getItem("#eleven", ".description");
-localStorage.getItem("#twelve", ".description");
-localStorage.getItem("#one", ".description");
-localStorage.getItem("#two", ".description");
-localStorage.getItem("#three", ".description");
-localStorage.getItem("#four", ".description");
-localStorage.getItem("#five", ".description");
+// localStorage.getItem("#nine", ".description");
+// localStorage.getItem("#ten", ".description");
+// localStorage.getItem("#eleven", ".description");
+// localStorage.getItem("#twelve", ".description");
+// localStorage.getItem("#one", ".description");
+// localStorage.getItem("#two", ".description");
+// localStorage.getItem("#three", ".description");
+// localStorage.getItem("#four", ".description");
+// localStorage.getItem("#five", ".description");
 
 // functions called
 // innerTimeBlocks();
