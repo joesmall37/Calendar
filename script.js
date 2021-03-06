@@ -1,86 +1,66 @@
-    var hourBlocks;
-    var currentDay = $("#currentDay");
-    var timeBlocks = $(".time-block");
-    var descriptions = $('.description');
-    var date = $(".display-3");
-
-    function init() {
-    save();
-    colorCode();
-    setInterval(colorCode, 5000);
-}
-    function save() {
-$(".saveBtn").on("click", function () {
-    var newText = $(".saveBtn").siblings(".description").val();
-    var newTime = $(".saveBtn").parent().attr("id");
-
-    localStorage.setItem(newTime, newText)
-});
-}
-
-
-
-    function colorCode() {
-    var currentTime = moment().hour();
-    for (let i = 0; i < timeBlocks.length; i++) {
-        const element = timeBlocks[i];
-
-        if ($(element).data("hour") < currentTime) {
-            $(element).removeClass("present");
-            $(element).removeClass("future");
-            $(element).addClass("past");
-
-        } else if ($(element).data("hour") === currentTime) {
-            $(element).removeClass("past");
-            $(element).removeClass("future");
-            $(element).addClass("present");
-        }else {
-            $(element).removeClass("past");
-            $(element).removeClass("present");
-            $(element).addClass("future");
-        }
-    }
-}
-function getItems() {
-    for (var i = 0; i < descriptions.length; i++) {
-    var key = $(descriptions[i]).attr('id');
-    $(descriptions[i]).val(localStorage.getItem(key));
-}
-}
-
+// Display today's day and date
+  var currentDay = $("#currentDay");
+  var timeBlocks = $(".time-block");
+  var descriptions = $('.description');
+  var date = $(".display-3");
 
 var today = moment().format("dddd, MMM Do YYYY");
     date.text(today);
+// var todayDate = moment().format('dddd, MMM Do YYYY');
+// $("#currentDay").html(todayDate);
 
-    init();
+$(document).ready(function () {
+// save values to local storage on click
+    $(".saveBtn").on("click", function () {
+        var text = $(this).siblings(".description").val();
+        var time = $(this).parent().attr("id");
+        localStorage.setItem(time, text);
+    })
 
+    function colorCode() {
+        // current time.
+        var currentTime = moment().hour();
 
-function init() {
-    save();
-    getItems();
-    colorCode();
-    setInterval(colorCode, 5000);
+        $(".time-block").each(function () {
+            var blockTime = parseInt($(this).attr("id").split("h")[1]);
 
-};
-function getItem() {
-	$("#nine .description").val(localStorage.getItem("nine"));
-    $("#ten .description").val(localStorage.getItem("ten"));
-    $("#eleven .description").val(localStorage.getItem("eleven"));
-    $("#twelve .description").val(localStorage.getItem("twelve"));
-    $("#thirteen .description").val(localStorage.getItem("thirteen"));
-    $("#fourteen .description").val(localStorage.getItem("fourteen"));
-    $("#fifteen .description").val(localStorage.getItem("fifteen"));
-    $("#sixteen .description").val(localStorage.getItem("sixteen"));
-    $("#seventeen .description").val(localStorage.getItem("seventeen"))
+            if (blockTime < currentTime) {
+                $(this).removeClass("future");
+                $(this).removeClass("present");
+                $(this).addClass("past");
+            }
+            else if (blockTime == currentTime) {
+                $(this).removeClass("past");
+                $(this).removeClass("future");
+                $(this).addClass("present");
+            }
+            else {
+                $(this).removeClass("present");
+                $(this).removeClass("past");
+                $(this).addClass("future");
 
-}
-	//clear the data from local storage
+            }
+        })
+    }
+
+    // Get items from local storage
+    $("#h9 .description").val(localStorage.getItem("h9"));
+    $("#h10 .description").val(localStorage.getItem("h10"));
+    $("#h11 .description").val(localStorage.getItem("h11"));
+    $("#h12 .description").val(localStorage.getItem("h12"));
+    $("#h13 .description").val(localStorage.getItem("h13"));
+    $("#h14 .description").val(localStorage.getItem("h14"));
+    $("#h15 .description").val(localStorage.getItem("h15"));
+    $("#h16 .description").val(localStorage.getItem("h16"));
+    $("#h17 .description").val(localStorage.getItem("h17"));
+
+//clear the data from local storage
 $("#clear").on("click", function(){
   $(".textarea").val("");
   localStorage.clear();
 });
 
-init();
+colorCode();
 
-getItem();
+})
 
