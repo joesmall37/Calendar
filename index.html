@@ -10,111 +10,106 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Work Day Scheduler</title>
+    <title>Work Day Scheduler - Challenge 5: Third-Party APIs </title>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="jumbotron">
-        <h1 class="display-3">Work Day Scheduler </h1>
-        <p class="lead">Calendar App for Work!</p>
+        <h1 class="display-3">Work Day Calendar</h1>
+        <p class="lead">Schedule Work Day Events</p>
         <p id="currentDay" class="lead"></p>
+        <!-- button to clear data from local storage -->
         <button id="clear" class=" btn col-md-1"><i class="fas fa-minus-circle"></i></button>
     </header>
+
     <div class="container">
-        <!-- remove class for hour (e.g.) nine -->
-    <div id="nine" class="row time-block nine" data-hour="9">
-        <div class="col-md-1 hour">
-            9AM
+        <div id="h9" class="row time-block">
+            <div class="col-md-1 hour">
+                9AM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="ten" class="row time-block ten" data-hour="10">
-        <div class="col-md-1 hour">
-            10AM
+        <div id="h10" class="row time-block">
+            <div class="col-md-1 hour">
+                10AM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="eleven" class="row time-block eleven" data-hour="11">
-        <div class="col-md-1 hour">
-            11AM
+        <div id="h11" class="row time-block">
+            <div class="col-md-1 hour">
+                11AM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="twelve" class="row time-block twelve" data-hour="12">
-        <div class="col-md-1 hour">
-            12PM
+        <div id="h12" class="row time-block">
+            <div class="col-md-1 hour">
+                12 PM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="thirteen" class="row time-block one" data-hour="13">
-        <div class="col-md-1 hour">
-            1PM
+        <div id="h13" class="row time-block">
+            <div class="col-md-1 hour">
+                1PM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="fourteen" class="row time-block two" data-hour="14">
-        <div class="col-md-1 hour">
-            2PM
+        <div id="h14" class="row time-block">
+            <div class="col-md-1 hour">
+                2PM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="fifteen" class="row time-block three" data-hour="15">
-        <div class="col-md-1 hour">
-            3PM
+        <div id="h15" class="row time-block">
+            <div class="col-md-1 hour">
+                3PM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="sixteen" class="row time-block four" data-hour="16">
-        <div class="col-md-1 hour">
-            4PM
+        <div id="h16" class="row time-block">
+            <div class="col-md-1 hour">
+                4PM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
-    </div>
 
-    <div id="seventeen" class="row time-block five">
-        <div class="col-md-1 hour">
-            5PM
+        <div id="h17" class="row time-block">
+            <div class="col-md-1 hour">
+                5PM
+            </div>
+            <textarea class="col-md-10 description">
+            </textarea>
+            <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
         </div>
-        <textarea class="col-md-10 description">
-                </textarea>
-        <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+        
     </div>
 
-    </div>
-
-
-
-
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="newtest.js"></script>
 </body>
 
 </html>
