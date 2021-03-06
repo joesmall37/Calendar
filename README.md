@@ -1,4 +1,4 @@
-# Calendar
+# Work-Day-Calendar
 Work-Day-Calendar
 
 - This application provides the user with a calendar to manage work day activities/events.
