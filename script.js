@@ -2,39 +2,24 @@
 	var currentDay = $("#currentDay");
 	var timeBlocks = $(".time-block");
 	var descriptions = $('.description');
-
 	var date = $(".display-3");
 
-
-// 	colorCode();
-// 	// get a refernce to all of the save buttons $('.saveBtn')
-// 	$(".saveBtn");
-// 	// create an array containing the hour blocks
-// // loop through the array containing the hours
-// function innerTimeBlocks() {
-
-// for (var i = 0; i < hourBlocks.length; i++) {
-// 	return hourBlocks[i];
-// }
-// };
-// on click function each of the save buttons
+	function init() {
+	save();
+	colorCode();
+	setInterval(colorCode, 5000);
+}
+	function save() {
 $(".saveBtn").on("click", function () {
 	var newText = $(".saveBtn").siblings(".description").val();
 	var newTime = $(".saveBtn").parent().attr("id");
 
 	localStorage.setItem(newTime, newText)
 });
-	// localStorage.getItem(newTime, newText);
-// function for current time
-// 	function time() {
-// 	currentTime = moment().format("hA");
-// 	innerTimeBlocks();
-// 	colorCode();
-// 	return currentTime;
-// };
-// // function for current day
+}
 
-function colorCode() {
+
+	function colorCode() {
 	var currentTime = moment().hour();
 	for (let i = 0; i < timeBlocks.length; i++) {
 		const element = timeBlocks[i];
@@ -56,14 +41,76 @@ function colorCode() {
 	}
 }
 
-// // set items to local storage
-for (var i = 0; i < descriptions.length; i++) {
+	for (var i = 0; i < descriptions.length; i++) {
 	var key = $(descriptions[i]).attr('id');
 	$(descriptions[i]).val(localStorage.getItem(key));
 }
 
 var today = moment().format("dddd, MMM Do YYYY, h:mm:ss a");
 	date.text(today);
+
+	init();
+
+// 	colorCode();
+// 	// get a refernce to all of the save buttons $('.saveBtn')
+// 	$(".saveBtn");
+// 	// create an array containing the hour blocks
+// // loop through the array containing the hours
+// function innerTimeBlocks() {
+
+// for (var i = 0; i < hourBlocks.length; i++) {
+// 	return hourBlocks[i];
+// }
+// };
+// on click function each of the save buttons
+// function save() {
+// $(".saveBtn").on("click", function () {
+// 	var newText = $(".saveBtn").siblings(".description").val();
+// 	var newTime = $(".saveBtn").parent().attr("id");
+
+// 	localStorage.setItem(newTime, newText)
+// });
+// }
+	// localStorage.getItem(newTime, newText);
+// function for current time
+// 	function time() {
+// 	currentTime = moment().format("hA");
+// 	innerTimeBlocks();
+// 	colorCode();
+// 	return currentTime;
+// };
+// // function for current day
+
+// function colorCode() {
+// 	var currentTime = moment().hour();
+// 	for (let i = 0; i < timeBlocks.length; i++) {
+// 		const element = timeBlocks[i];
+
+// 		if ($(element).data("hour") < currentTime) {
+// 			$(element).removeClass("present");
+// 			$(element).removeClass("future");
+// 			$(element).addClass("past");
+
+// 		} else if ($(element).data("hour") === currentTime) {
+// 			$(element).removeClass("past");
+// 			$(element).removeClass("future");
+// 			$(element).addClass("present");
+// 		}else {
+// 			$(element).removeClass("past");
+// 			$(element).removeClass("present");
+// 			$(element).addClass("future");
+// 		}
+// 	}
+// }
+
+// // // // set items to local storage
+// for (var i = 0; i < descriptions.length; i++) {
+// 	var key = $(descriptions[i]).attr('id');
+// 	$(descriptions[i]).val(localStorage.getItem(key));
+// }
+
+// var today = moment().format("dddd, MMM Do YYYY, h:mm:ss a");
+// 	date.text(today);
 
 // localStorage.getItem("#nine", ".description");
 // localStorage.getItem("#ten", ".description");
@@ -74,11 +121,26 @@ var today = moment().format("dddd, MMM Do YYYY, h:mm:ss a");
 // localStorage.getItem("#three", ".description");
 // localStorage.getItem("#four", ".description");
 // localStorage.getItem("#five", ".description");
-
+// localStorage.setItem(newTime, newText)
 // functions called
 // innerTimeBlocks();
-colorCode();
-setInterval(colorCode, 5000);
+
+function init() {
+	save();
+	colorCode();
+	setInterval(colorCode, 5000);
+
+
+}
+function save() {
+$(".saveBtn").on("click", function () {
+	var newText = $(".saveBtn").siblings(".description").val();
+	var newTime = $(".saveBtn").parent().attr("id");
+
+	localStorage.setItem(newTime, newText)
+});
+}
+
 
 // colorCode();
 
@@ -172,3 +234,12 @@ setInterval(colorCode, 5000);
 // should I be passing in variabes into functions?
 // if js is running at the same time then I shouldn't just call functions
 // .each to itirate over arrays and objects
+	// localStorage.getItem(newTime, newText);
+// function for current time
+// 	function time() {
+// 	currentTime = moment().format("hA");
+// 	innerTimeBlocks();
+// 	colorCode();
+// 	return currentTime;
+// };
+// // function for current day
