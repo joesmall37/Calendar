@@ -1,13 +1,11 @@
-// Display today's day and date
   var currentDay = $("#currentDay");
   var timeBlocks = $(".time-block");
   var descriptions = $('.description');
   var date = $(".display-3");
 
+// get current date through moment
 var today = moment().format("dddd, MMM Do YYYY");
     date.text(today);
-// var todayDate = moment().format('dddd, MMM Do YYYY');
-// $("#currentDay").html(todayDate);
 
 $(document).ready(function () {
 // save values to local storage on click
@@ -59,6 +57,7 @@ $("#clear").on("click", function(){
   $(".textarea").val("");
   localStorage.clear();
 });
+// call color code function
 
 colorCode();
 
