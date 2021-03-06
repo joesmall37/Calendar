@@ -63,4 +63,3 @@ $("#clear").on("click", function(){
 colorCode();
 
 })
-
